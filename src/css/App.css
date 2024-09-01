@@ -1,9 +1,11 @@
 :root {
-  --primary-color: #0f4c81;
-  --secondary-color: #dcf9f5;
-  --tertiary-color: #fdfcff;
-  --border-color: #e7e7e7;
+  --light-blue: #5684AE;
+  --dark-blue: #0F4C81;
+  --light-orange: #FFE4C8;
+  --dark-orange: #F9BE81;
+  --calendar-tile-color: #E4F6ED;
 }
+
 
 * {
   margin: 0;
@@ -17,13 +19,15 @@
   justify-content: center;
   min-height: 100vh;
   background-color: #dcf9f5;
-  padding: 2vh;
+  padding: 5vh;
   padding-top: 4vh;
 }
 
 .left-side {
   flex: 1;
+  min-width: 25rem;
   overflow: hidden;
+  padding: 0.5rem 0.2rem;
   font-weight: bolder;
   background-color: #fdfcff;
   border: solid 2px #e7e7e7;
@@ -32,14 +36,15 @@
 }
 
 .tiny-cal {
-  margin: 0 1.5rem;
+  margin: 0rem 1rem;
   border-bottom: solid 2px #e7e7e7;
 }
+
 .right-side {
   position: sticky;
   flex: 3;
   width: auto;
-  height: 91vh;
+  height: 92vh;
   border-top-right-radius: 25px;
   overflow: hidden;
   border-radius: 25px;
@@ -57,13 +62,14 @@
 
 .title-container button {
   background-color: #0f4c81;
-  color: white;
+  color: var(--calendar-tile-color);
   border: none;
   border-radius: 25px;
   padding: 0.5rem 1rem;
   margin-right: 1.5rem;
   cursor: pointer;
 }
+
 
 .title-text {
   font-size: 1rem;
@@ -79,6 +85,26 @@
 }
 
 .currentday {
-  font-size: 16px;
+  font-size: 18px;
   color: gray;
+}
+
+@media (max-width: 1140px) {
+  .container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 0;
+  }
+  .left-side {
+    min-width: 18rem;
+    padding: 1rem 0;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .right-side {
+    border-radius: 0;
+    width: 100%;
+    height: auto;
+  }
 }

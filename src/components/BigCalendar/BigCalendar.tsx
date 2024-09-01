@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EventTag from "../EventTag/EventTag";
 import "../../css/Calendar.css";
 import {
   IoIosArrowBack,
@@ -22,7 +23,7 @@ const months = [
   "December",
 ];
 
-const MyCalendar: React.FC = () => {
+const MyCalendar = () => {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [currentDate] = useState(new Date());
@@ -135,23 +136,34 @@ const MyCalendar: React.FC = () => {
           <div key={`prev-${index}`} className="date-cell empty-cell"></div>
         ))}
         {days.map((date) => (
-          <div key={date.toDateString()} className={`date-cell `}>
-            <div
-              className={`${
-                date.getDate() === currentDate.getDate() &&
-                date.getMonth() === currentDate.getMonth() &&
-                date.getFullYear() === currentDate.getFullYear()
-                  ? "current-day"
-                  : ""
-              }`}
-            >
-              <div className="date-number">{date.getDate()}</div>
+          <div
+            key={date.toDateString()}
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <div className={`date-cell `}>
+              <div
+                className={`${
+                  date.getDate() === currentDate.getDate() &&
+                  date.getMonth() === currentDate.getMonth() &&
+                  date.getFullYear() === currentDate.getFullYear()
+                    ? "current-day"
+                    : ""
+                }`}
+              >
+                <div className="date-number">{date.getDate()}</div>
+                <EventTag />
+              </div>
             </div>
           </div>
         ))}
         {nextMonthDays.map((day, index) => (
-          <div key={`next-${index}`} className="date-cell next-month-day">
-            <div className="date-number">{day}</div>
+          <div
+            key={`next-${index}`}
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <div className="date-cell next-month-day">
+              <div className="date-number">{day}</div>
+            </div>
           </div>
         ))}
       </div>

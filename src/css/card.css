@@ -1,5 +1,21 @@
+
 .card-container {
   display: flex;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: auto;
+  height: 5rem;
+  background: #ffe4c8;
+  margin: 1rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border-left: solid 10px #0f4c81;
+}
+.cli-card-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   flex-direction: column;
   gap: 0.5rem;
@@ -12,12 +28,12 @@
   border-left: solid 10px #0f4c81;
 }
 .title-card {
-  font-size: 15px;
+  font-size: 17px;
   color: #0f4c81;
 }
 .client-container {
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 0.5rem;
 }
 .cam-icon-container {
@@ -26,10 +42,10 @@
   justify-content: center;
   position: absolute;
   cursor: pointer;
-  left: 80%;
+  right: 3%;
   top: 10%;
-  width: 2.0rem;
-  height: 2.0rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background: #0f4c81;
 }
@@ -43,8 +59,8 @@
 }
 
 .client-icon {
-    background-color: aliceblue;
-    border-radius: 100%;
+  background-color: aliceblue;
+  border-radius: 100%;
   cursor: pointer;
   color: #0f4c81;
   width: 1.4rem;
@@ -52,7 +68,7 @@
 }
 
 .date-text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: gray;
 }

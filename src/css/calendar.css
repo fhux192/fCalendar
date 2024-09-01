@@ -1,16 +1,8 @@
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 .calendar {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
   font-family: Arial, sans-serif;
 }
 
@@ -19,7 +11,7 @@ body,
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #f0f4f7;
+  background-color: #ffffff;
 }
 
 .header button {
@@ -35,12 +27,13 @@ body,
 
 .days-of-week {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 2fr);
   text-align: center;
   color: gray;
-  background-color: #f0f4f7;
+  background-color: #ffffff;
   padding: 10px 0;
 }
+
 .tool-container {
   display: flex;
   justify-content: space-between;
@@ -72,7 +65,7 @@ body,
   position: relative;
   height: 100%;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 5px;
   box-sizing: border-box;
 }
 
@@ -107,6 +100,9 @@ body,
 }
 
 .current-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #0f4c81;
   width: 40px;
   height: 40px;
@@ -118,6 +114,7 @@ body,
 .current-day .date-number {
   color: white;
 }
+
 .month-dropdown {
   position: absolute;
   right: 0;
@@ -139,4 +136,50 @@ body,
 
 .month-option:hover {
   background-color: #f0f0f0;
+}
+
+h2 {
+  text-align: center;
+}
+
+@media (max-width: 1140px) {
+  h2 {
+    font-size: 1.35rem;
+  }
+  .current-day {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .date-cell {
+    min-height: 6rem;
+    border: solid 2px #e8e8e8;
+    border-radius: 10px;
+  }
+  .dates-grid {
+    gap: 0.5rem;
+    margin: 0 0.2rem;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+  }
+  .header button {
+    display: none !important;
+  }
+}
+
+@media (min-width: 570px) and (max-width: 1140px) {
+  .date-cell {
+    max-height: 7rem;
+    max-width: 4rem;
+  }
+  .dates-grid {
+    column-gap: 0rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .day {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
