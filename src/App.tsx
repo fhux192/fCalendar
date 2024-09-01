@@ -5,7 +5,6 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import ClientEventCard from "./components/ClientEventCard/ClientEventCard";
 import EventsCard from "./components/EventCard/EventCard";
 import MyCalendar from "./components/BigCalendar/BigCalendar";
-
 import "./css/App.css";
 
 function App() {
