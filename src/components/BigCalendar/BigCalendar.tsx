@@ -1,12 +1,14 @@
 import { useState } from "react";
 import EventTag from "../EventTag/EventTag";
+import EventInfoData from "../../data/EventInfoData";
+
 import "../../css/calendar.css";
 import {
   IoIosArrowBack,
   IoIosArrowForward,
   IoIosArrowDown,
 } from "react-icons/io";
-
+const tag = "Webinar: How to cope with trauma in professional life";
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = [
   "January",
@@ -28,6 +30,7 @@ const MyCalendar = () => {
   const [year, setYear] = useState(new Date().getFullYear());
   const [currentDate] = useState(new Date());
   const [showMonthDropdown, setShowMonthDropdown] = useState(false);
+  const events = EventInfoData;
 
   const getDaysInMonth = (year: number, month: number) => {
     const date = new Date(year, month, 1);
@@ -140,7 +143,16 @@ const MyCalendar = () => {
             key={date.toDateString()}
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            <div className={`date-cell `}>
+            <div
+              style={{
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "start",
+                alignItems: "center",
+              }}
+              className={`date-cell `}
+            >
               <div
                 className={`${
                   date.getDate() === currentDate.getDate() &&
@@ -151,8 +163,26 @@ const MyCalendar = () => {
                 }`}
               >
                 <div className="date-number">{date.getDate()}</div>
-                <EventTag />
               </div>
+              {events
+                .filter(
+                  (event) =>
+                    event.date === date.getDate() &&
+                    event.month === date.getMonth() + 1 &&
+                    event.year === date.getFullYear()
+                )
+
+                .map((event, index) => (
+                  <EventTag
+                    primaryColor={event.colors.primary}
+                    secondaryColor={event.colors.secondary}
+                    textColor={event.colors.text}
+                    dummyURL={event.dummyURL}
+                    key={index}
+                    tagName={event.tagName}
+                    index={index}
+                  />
+                ))}
             </div>
           </div>
         ))}
