@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import EventTag from "../EventTag/EventTag";
 import "../../css/Calendar.css";
 import {
