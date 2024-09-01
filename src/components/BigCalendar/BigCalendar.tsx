@@ -8,7 +8,7 @@ import {
   IoIosArrowForward,
   IoIosArrowDown,
 } from "react-icons/io";
-const tag = "Webinar: How to cope with trauma in professional life";
+
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = [
   "January",
