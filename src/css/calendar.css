@@ -17,8 +17,8 @@
   position: relative;
   background-color: #0f4c81;
   color: white;
-  border: none;
-  border-radius: 15px;
+  border: solid 2px #0f4c81;
+  border-radius: 10px;
   padding: 0.5rem 1rem;
   margin-right: 15px;
   cursor: pointer;
@@ -43,13 +43,14 @@
 .tool-container button {
   color: #0f4c81;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   border: solid 2px #0f4c81;
   padding: 0.5rem 1rem;
   margin-right: 15px;
   cursor: pointer;
   background-color: transparent;
 }
+
 .dates-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -96,7 +97,7 @@
 }
 
 .arrow-icon:hover {
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(240, 240, 240);
 }
 
 .current-day {
@@ -104,9 +105,9 @@
   align-items: center;
   justify-content: center;
   background-color: #0f4c81;
-  width: 40px;
-  height: 40px;
-  color: rgb(100, 100, 100);
+  width: 30px;
+  height: 30px;
+  color: rgb(120, 120, 120);
   padding: 10px;
   border-radius: 100%;
 }
@@ -147,15 +148,14 @@ h2 {
     font-size: 1.35rem;
   }
   .current-day {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     font-size: 0.8rem;
   }
   .date-cell {
     min-height: 6rem;
     border: solid 2px #e8e8e8;
     border-radius: 10px;
-    
   }
   .dates-grid {
     gap: 0.5rem;

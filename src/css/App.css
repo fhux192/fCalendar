@@ -2,7 +2,7 @@
   --light-blue: #5684ae;
   --dark-blue: #0f4c81;
   --light-orange: #ffe4c8;
-  --dark-orange: #ee7c41;
+  --dark-orange: #ff4500;
   --calendar-tile-color: #e4f6ed;
 }
 
@@ -73,7 +73,7 @@
   font-size: 1rem;
   font-weight: bolder;
   color: #0f4c81;
-  margin-top: 0.5rem;
+  margin-top: 0.9rem;
   margin-left: 1.5rem;
 }
 
@@ -85,6 +85,11 @@
 .currentday {
   font-size: 18px;
   color: gray;
+}
+
+.message-container {
+  color: rgb(100, 100, 100);
+  margin: 1rem 1.5rem 0 1.5rem;
 }
 
 @media (max-width: 1140px) {
@@ -99,9 +104,13 @@
     border-radius: 0;
     margin-right: 0;
   }
+  .title-container button {
+    display: none;
+  }
 
   .right-side {
     border-radius: 0;
+    border: none;
     width: 100%;
     height: auto;
   }

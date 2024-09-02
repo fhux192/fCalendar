@@ -1,21 +1,19 @@
 .tag-container {
   display: flex;
   position: absolute;
-  background-color: #ffe4c8;
   margin-top: 2px;
   top: 35%;
   width: 100%;
   border-radius: 3px;
-  border-left: solid 5px #0f4c81;
+  border-left: solid 5px;
 }
 
 .tag-container a {
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
   overflow: hidden;
   font-size: 18px;
-  color: #0f4c81;
   margin-left: 3px;
   width: 100%;
   height: 20px;

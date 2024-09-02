@@ -25,12 +25,13 @@ const months = [
   "December",
 ];
 
-const MyCalendar = () => {
+const BigCalendar = () => {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [currentDate] = useState(new Date());
   const [showMonthDropdown, setShowMonthDropdown] = useState(false);
   const events = EventInfoData;
+  const isMobile = window.innerWidth < 1140;
 
   const getDaysInMonth = (year: number, month: number) => {
     const date = new Date(year, month, 1);
@@ -88,6 +89,30 @@ const MyCalendar = () => {
   const selectMonth = (selectedMonth: number) => {
     setMonth(selectedMonth);
     setShowMonthDropdown(false);
+  };
+
+  const handleRemainingEvents = (date: Date) => {
+    let count = 0;
+    events
+      .filter(
+        (event) =>
+          event.date === date.getDate() &&
+          event.month === date.getMonth() + 1 &&
+          event.year === date.getFullYear()
+      )
+      .map((current, index) => {
+        if (
+          current.date === date.getDate() &&
+          current.month === date.getMonth() + 1 &&
+          current.year === date.getFullYear() &&
+          index >= 2
+        ) {
+          count += 1;
+        }
+      });
+    if (count > 0) {
+      return `${count} more`;
+    }
   };
 
   return (
@@ -171,18 +196,66 @@ const MyCalendar = () => {
                     event.month === date.getMonth() + 1 &&
                     event.year === date.getFullYear()
                 )
+                .map((event, index) => {
+                  if (index < 2) {
+                    return (
+                      <EventTag
+                        primaryColor={event.colors.primary}
+                        secondaryColor={event.colors.secondary}
+                        textColor={event.colors.text}
+                        dummyURL={event.dummyURL}
+                        key={index}
+                        tagName={event.tagName}
+                        index={index}
+                      />
+                    );
+                  }
+                })}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: `${isMobile ? "0.6rem" : "0rem"}`,
+                  left: "0",
+                  fontWeight: "bold",
+                  fontSize: `${isMobile ? "0.5rem" : "0.7rem"}`,
+                  color: "#0f4c81",
+                }}
+              >
+                {/* {events.map((current, index) => {
+                  if (
+                    current.date === date.getDate() &&
+                    current.month === date.getMonth() + 1 &&
+                    current.year === date.getFullYear() &&
+                    index < 1
+                  ) {
+                    const count = events
+                      .filter(
+                        (event) =>
+                          event.date === date.getDate() &&
+                          event.month === date.getMonth() + 1 &&
+                          event.year === date.getFullYear()
+                      )
+                      .reduce((acc: any, curr: any, i: any) => {
+                        if (
+                          curr.date === date.getDate() &&
+                          curr.month === date.getMonth() + 1 &&
+                          curr.year === date.getFullYear() &&
+                          i >= 2
+                        ) {
+                          acc += 1;
+                        }
+                        return acc;
+                      }, 0);
 
-                .map((event, index) => (
-                  <EventTag
-                    primaryColor={event.colors.primary}
-                    secondaryColor={event.colors.secondary}
-                    textColor={event.colors.text}
-                    dummyURL={event.dummyURL}
-                    key={index}
-                    tagName={event.tagName}
-                    index={index}
-                  />
-                ))}
+                    if (count > 0) {
+                      return `${count} more`;
+                    }
+                  }
+                  return null;
+                })} */}
+
+                {handleRemainingEvents(date)}
+              </div>
             </div>
           </div>
         ))}
@@ -201,4 +274,4 @@ const MyCalendar = () => {
   );
 };
 
-export default MyCalendar;
+export default BigCalendar;

@@ -10,7 +10,6 @@
   margin: 1rem;
   padding: 0.7rem;
   border-radius: 10px;
-  border-left: solid 10px #0f4c81;
   cursor: pointer;
 }
 .cli-card-container {
@@ -59,11 +58,12 @@
   color: #5684ae;
 }
 
-.client-icon {
+.client-img {
   background-color: aliceblue;
   border-radius: 100%;
   cursor: pointer;
   color: #0f4c81;
+  object-fit: contain;
   width: 1.4rem;
   height: 1.4rem;
 }

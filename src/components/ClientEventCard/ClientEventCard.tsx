@@ -1,26 +1,35 @@
 import "../../css/card.css";
-import { FaUser } from "react-icons/fa";
 import { GoDeviceCameraVideo } from "react-icons/go";
 
-const ClientEventCard = () => {
-  const event = {
-    title: "First Sesson with Alex Stan",
-    time: "9:00 AM - 9:30 AM GMT+8",
-  };
-
+const ClientEventCard = ({ event }: { event: any }) => {
   return (
-    <div className="cli-card-container">
-      <div className="cam-icon-container">
-        {" "}
-        <GoDeviceCameraVideo className="cam-icon" />
-      </div>
-      <p className="title-card">{event.title}</p>
+    <div
+      style={{
+        borderLeft: `solid 10px ${event.colors.secondary}`,
+        backgroundColor: `${event.colors.primary}`,
+      }}
+      className="cli-card-container"
+    >
+      <a
+        href={event.dummyURL}
+        style={{ backgroundColor: `${event.colors.secondary}` }}
+        className="cam-icon-container"
+      >
+        <GoDeviceCameraVideo style={{ color: "#fff" }} className="cam-icon" />
+      </a>
+      <a
+        href={event.dummyURL}
+        style={{ color: `${event.colors.text}`, textDecoration: "none" }}
+        className="title-card"
+      >
+        {event.tagName}
+      </a>
       <p className="date-text">{event.time}</p>
       <div className="client-container">
         <div className="cli-icon-container">
-          <FaUser className="client-icon" />
+          <img alt={event.image} src={event.image} className="client-img" />
         </div>
-        <a href="">View Client Profile</a>
+        <a href={event.profileLink}>View Client Profile</a>
       </div>
     </div>
   );
